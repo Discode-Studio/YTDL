@@ -33,6 +33,9 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      - name: install
+        run: pip install Flask yt-dlp
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
