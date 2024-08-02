@@ -3,47 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter une Playlist YouTube</title>
+    <title>Télécharger Playlist YouTube</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
         }
-        iframe {
-            width: 100%;
-            max-width: 640px;
-            height: 360px;
-            border: 0;
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
         }
-        .instructions {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-        .instructions a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-        .instructions a:hover {
-            text-decoration: underline;
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <h1>Ajouter une Playlist YouTube à votre appareil</h1>
-    
-    <!-- Intégration de la playlist YouTube -->
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLw-VjHDlEOgs658C6Q9w9oCkDaXuh31mx" allowfullscreen></iframe>
-    
-    <div class="instructions">
-        <p>Pour ajouter cette playlist à votre application YouTube, suivez ces étapes :</p>
-        <ol>
-            <li><a href="https://www.youtube.com/playlist?list=PLw-VjHDlEOgs658C6Q9w9oCkDaXuh31mx" target="_blank">Cliquez ici pour ouvrir la playlist dans YouTube.</a></li>
-            <li>Ouvrez l'application YouTube sur votre appareil.</li>
-            <li>Connectez-vous avec le même compte Google que celui utilisé sur votre navigateur.</li>
-            <li>Recherchez la playlist dans l'application YouTube.</li>
-            <li>Ajoutez la playlist à vos favoris ou à votre bibliothèque.</li>
-        </ol>
-    </div>
+    <h1>Téléchargez une Playlist YouTube</h1>
+    <form action="/download" method="post">
+        <label for="url">URL de la Playlist :</label>
+        <input type="text" id="url" name="url" placeholder="https://www.youtube.com/playlist?list=..." required>
+        <input type="submit" value="Télécharger">
+    </form>
 </body>
 </html>
