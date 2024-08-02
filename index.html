@@ -1,50 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube Downloader</title>
+    <title>Ajouter une Playlist YouTube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        iframe {
+            width: 100%;
+            max-width: 640px;
+            height: 360px;
+            border: 0;
+        }
+        .instructions {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .instructions a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .instructions a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>YouTube Downloader</h1>
-    <form id="download-form">
-        <label for="url">YouTube Video/Playlist URL:</label>
-        <input type="text" id="url" name="url" required>
-        <button type="submit">Download</button>
-    </form>
-    <p id="message"></p>
-
-    <script>
-        document.getElementById('download-form').addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const url = document.getElementById('url').value;
-            const message = document.getElementById('message');
-            message.textContent = 'Processing...';
-
-            try {
-                const response = await fetch('http://localhost:3000/download', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ url })
-                });
-
-                if (response.ok) {
-                    const blob = await response.blob();
-                    const downloadLink = document.createElement('a');
-                    downloadLink.href = URL.createObjectURL(blob);
-                    downloadLink.download = 'video.mp4';
-                    downloadLink.textContent = 'Download Video';
-                    document.body.appendChild(downloadLink);
-                    message.textContent = 'Download ready.';
-                } else {
-                    message.textContent = 'Error: ' + response.statusText;
-                }
-            } catch (error) {
-                message.textContent = 'Error: ' + error.message;
-            }
-        });
-    </script>
+    <h1>Ajouter une Playlist YouTube à votre appareil</h1>
+    
+    <!-- Intégration de la playlist YouTube -->
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLw-VjHDlEOgs658C6Q9w9oCkDaXuh31mx" allowfullscreen></iframe>
+    
+    <div class="instructions">
+        <p>Pour ajouter cette playlist à votre application YouTube, suivez ces étapes :</p>
+        <ol>
+            <li><a href="https://www.youtube.com/playlist?list=PLw-VjHDlEOgs658C6Q9w9oCkDaXuh31mx" target="_blank">Cliquez ici pour ouvrir la playlist dans YouTube.</a></li>
+            <li>Ouvrez l'application YouTube sur votre appareil.</li>
+            <li>Connectez-vous avec le même compte Google que celui utilisé sur votre navigateur.</li>
+            <li>Recherchez la playlist dans l'application YouTube.</li>
+            <li>Ajoutez la playlist à vos favoris ou à votre bibliothèque.</li>
+        </ol>
+    </div>
 </body>
 </html>
