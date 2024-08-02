@@ -30,7 +30,7 @@ def progress_hook(d):
     if d['status'] == 'finished':
         print('Téléchargement terminé')
 
-@app.route('/downloads/<filename>')
+@app.route('/YTDL/downloads/<filename>')
 def download_file(filename):
     return send_from_directory(DOWNLOAD_FOLDER, filename)
 
